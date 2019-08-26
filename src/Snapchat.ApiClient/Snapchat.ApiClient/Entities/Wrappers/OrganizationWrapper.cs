@@ -2,9 +2,9 @@
 
 namespace Snapchat.ApiClient
 {
-    public class OrganizationWrapper : BaseWrapper,  IWrapper<Organization>
+    public class OrganizationWrapper : BaseWrapper<Organization>
     {
         [JsonProperty("organization")]
-        public Organization Entity { get; set; }
+        public override Organization Entity { get; set; }
     }
 }

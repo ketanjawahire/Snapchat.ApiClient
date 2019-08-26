@@ -2,9 +2,9 @@
 
 namespace Snapchat.ApiClient
 {
-    public class AdWrapper : BaseWrapper, IWrapper<Ad>
+    public class AdWrapper : BaseWrapper<Ad>
     {
         [JsonProperty("ad")]
-        public Ad Entity { get; set; }
+        public override Ad Entity { get; set; }
     }
 }

@@ -2,10 +2,10 @@
 
 namespace Snapchat.ApiClient
 {
-    public partial class CampaignWrapper : BaseWrapper, IWrapper<Campaign>
+    public partial class CampaignWrapper : BaseWrapper<Campaign>
     {
         [JsonProperty("campaign")]
-        public Campaign Entity { get; set; }
+        public override Campaign Entity { get; set; }
     }
 
 }

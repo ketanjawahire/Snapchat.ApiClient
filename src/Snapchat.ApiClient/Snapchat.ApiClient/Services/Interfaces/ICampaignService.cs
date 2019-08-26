@@ -6,7 +6,6 @@ namespace Snapchat.ApiClient
     {
         Campaign GetById(string campaignId);
         IEnumerable<Campaign> GetByAccountId(string adAccountId, PagingOption pagingOption);
-        IEnumerable<Campaign> GetByAccountId(string adAccountId);
     }
 
 }

@@ -87,14 +87,15 @@ namespace Snapchat.ApiClient
             return string.IsNullOrEmpty(pagingUrl) ? pagingUrl : pagingUrl.Replace($"{_apiRequestBaseUrl}{_apiVersion}", string.Empty);
         }
 
-        //TODO : Try to make Extract method generic
-        //public IEnumerable<T> Extract<T>(RootObject<IWrapper<T>, T> rootObject) where T : IEntity
-        //{
-        //    return rootObject.WrapperCollection.Select(e => e.Entity);
-        //}
-
         //TODO : Refine generic method
-        private IEnumerable<TEntity> PagedRequest<TEntity, TRoot>(string url, PagingOption pagingOption) where TRoot : RootObject<IWrapper<TEntity>, TEntity>, new() where TEntity : IEntity
+#pragma warning disable CA1054 // Uri parameters should not be strings
+#pragma warning disable CA1822 // Mark members as static
+        protected IEnumerable<TEntity> ExecutePagedRequest<TRoot, TWrapper, TEntity>(string url, PagingOption pagingOption)
+            where TRoot :  class, IRootObject<TWrapper, TEntity>, new()
+            where TWrapper : class, IWrapper<TEntity>, new()
+            where TEntity : class, IEntity, new()
+#pragma warning restore CA1822 // Mark members as static
+#pragma warning restore CA1054 // Uri parameters should not be strings
         {
             if (pagingOption is null)
             {
@@ -103,41 +104,45 @@ namespace Snapchat.ApiClient
 #pragma warning restore CA1303 // Do not pass literals as localized parameters
             }
 
-            List<TEntity> campaigns = null;
-            //var url = "/adaccounts/{adaccount_id}/campaigns";
+            List<TEntity> entities = null;
             var counter = 0;
+
             do
             {
                 var request = new RestRequest(url, Method.GET);
-                //request.AddUrlSegment("adaccount_id", adAccountId);
-                //request.AddQueryParameter("limit", pagingOption.Limit.ToString(CultureInfo.InvariantCulture));
 
                 var response = Execute<TRoot>(request);
-                var tmpCampaigns = Extract<TRoot, TEntity>(response);
+                var tmpEntities = Extract<TRoot, TWrapper, TEntity>(response);
 
-                if (!tmpCampaigns.Any())
+                if (!tmpEntities.Any())
                     break;
 
-                if (campaigns == null)
-                    campaigns = new List<TEntity>();
+                if (entities == null)
+                    entities = new List<TEntity>();
 
-                campaigns.AddRange(tmpCampaigns);
+                entities.AddRange(tmpEntities);
 
                 if (string.IsNullOrEmpty(response.Paging.NextLink))
                     break;
 
                 url = GetRestReqestUrlFromPagingUrl(response.Paging.NextLink);
+
                 counter++;
             } while (counter < pagingOption.NumberOfPages);
 
-            return campaigns;
+            return entities;
         }
 
-        //TODO : Refine generic method
-        private IEnumerable<TEntity> Extract<TRoot, TEntity>(TRoot response)
-            where TRoot : class, IRootObject<IWrapper<TEntity>, TEntity>, new()
-            where TEntity : IEntity
+#pragma warning disable CA1822 // Mark members as static
+        protected IEnumerable<TEntity> Extract<TRoot, TWrapper, TEntity>(TRoot response)
+#pragma warning restore CA1822 // Mark members as static
+            where TRoot : class, IRootObject<TWrapper, TEntity>, new()
+            where TWrapper : class, IWrapper<TEntity>, new()
+            where TEntity : class, IEntity, new()
         {
+            if (response is null)
+                throw new ArgumentNullException(nameof(response));
+
             return response.WrapperCollection.Select(e => e.Entity);
         }
     }

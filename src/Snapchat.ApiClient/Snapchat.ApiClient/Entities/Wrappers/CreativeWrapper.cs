@@ -2,9 +2,9 @@
 
 namespace Snapchat.ApiClient
 {
-    public class CreativeWrapper :  BaseWrapper, IWrapper<Creative>
+    public class CreativeWrapper :  BaseWrapper<Creative>
     {
         [JsonProperty("creative")]
-        public Creative Entity { get; set; }
+        public override Creative Entity { get; set; }
     }
 }
