@@ -1,14 +1,13 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Snapchat.ApiClient
 {
-    public  class AdAccountRootObject : RootObject<AdaccountWrapper, Adaccount>
+    public class CreativeRootObject : RootObject<CreativeWrapper, Creative>
     {
-        [JsonProperty("adaccounts")]
+        [JsonProperty("creatives")]
 #pragma warning disable CA2227 // Collection properties should be read only
-        public override List<AdaccountWrapper> WrapperCollection { get; set; }
+        public override List<CreativeWrapper> WrapperCollection  { get; set; }
 #pragma warning restore CA2227 // Collection properties should be read only
     }
 }

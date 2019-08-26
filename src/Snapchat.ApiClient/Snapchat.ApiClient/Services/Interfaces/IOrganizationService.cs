@@ -1,10 +1,14 @@
-﻿namespace Snapchat.ApiClient
+﻿using System.Collections.Generic;
+
+namespace Snapchat.ApiClient
 {
-#pragma warning disable CA1040 // Avoid empty interfaces
     public interface IOrganizationService : IApiService
-#pragma warning restore CA1040 // Avoid empty interfaces
     {
-        
+        Organization GetById(string organizationId);
+
+#pragma warning disable CA1716 // Identifiers should not match keywords
+        IEnumerable<Organization> Get(PagingOption pagingOption);
+#pragma warning restore CA1716 // Identifiers should not match keywords
     }
 
     

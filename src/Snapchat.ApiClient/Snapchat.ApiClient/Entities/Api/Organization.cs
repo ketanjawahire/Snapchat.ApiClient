@@ -6,7 +6,7 @@ namespace Snapchat.ApiClient
     public class Organization : IEntity
     {
         [JsonProperty("id")]
-        public string id { get; set; }
+        public string Id { get; set; }
 
         [JsonProperty("updated_at")]
         public DateTime UpdatedAt { get; set; }

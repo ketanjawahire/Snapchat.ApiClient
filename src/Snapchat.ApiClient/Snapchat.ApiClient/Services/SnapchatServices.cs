@@ -1,4 +1,6 @@
-﻿namespace Snapchat.ApiClient
+﻿using Snapchat.ApiClient.Services;
+
+namespace Snapchat.ApiClient
 {
     public class SnapchatServices
     {
@@ -13,17 +15,16 @@
         {
             IApiService apiService = null;
 
-            if (typeof(T) == typeof(IOrganizationService))
-            {
-                apiService = new OrganizationService(_authService);
-            }
+            if (typeof(T) == typeof(IOrganizationService)) { apiService = new OrganizationService(_authService); }
             else if (typeof(T) == typeof(IAdAccountService)) { apiService = new AdAccountService(_authService); }
             else if (typeof(T) == typeof(ICampaignService)) { apiService = new CampaignService(_authService); }
+            else if (typeof(T) == typeof(IAdSquadService)) { apiService = new AdSquadService(_authService); }
+            else if (typeof(T) == typeof(IAdService)) { apiService = new AdService(_authService); }
+            else if (typeof(T) == typeof(ICreativeService)) { apiService = new CreativeService(_authService); }
+            else if (typeof(T) == typeof(IMeasurementService)) { apiService = new MeasurementService(_authService); }
             else { throw new ApiServiceNotFoundException(typeof(T)); }
 
             return (T)apiService;
-
-            
         }
     }
 }

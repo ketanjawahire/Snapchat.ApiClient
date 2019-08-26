@@ -1,7 +1,11 @@
-﻿namespace Snapchat.ApiClient
+﻿using System.Collections.Generic;
+
+namespace Snapchat.ApiClient
 {
     public interface IAdAccountService : IApiService
     {
-        AdAccountRootObject GetByOrganizationId(string organizationId);
+        IEnumerable<Adaccount> GetByOrganizationId(string organizationId, PagingOption pagingOption);
+
+        Adaccount GetByAccountId(string accountId);
     }
 }
