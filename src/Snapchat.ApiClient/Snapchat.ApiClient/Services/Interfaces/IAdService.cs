@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using Snapchat.ApiClient.Entities.Api;
+using System.Collections.Generic;
 
-namespace Snapchat.ApiClient.Services
+namespace Snapchat.ApiClient.Services.Interfaces
 {
     public interface IAdService : IApiService
     {

@@ -1,4 +1,6 @@
-﻿namespace Snapchat.ApiClient
+﻿using Snapchat.ApiClient.Services.Interfaces;
+
+namespace Snapchat.ApiClient.Services
 {
     internal class MeasurementService : BaseService, IMeasurementService
     {

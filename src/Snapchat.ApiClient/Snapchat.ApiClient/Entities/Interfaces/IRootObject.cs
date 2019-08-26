@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Snapchat.ApiClient.Entities.Api;
+using System.Collections.Generic;
 
 namespace Snapchat.ApiClient
 {

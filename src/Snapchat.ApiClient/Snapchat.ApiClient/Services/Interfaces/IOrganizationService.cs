@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using Snapchat.ApiClient.Entities.Api;
+using System.Collections.Generic;
 
-namespace Snapchat.ApiClient
+namespace Snapchat.ApiClient.Services.Interfaces
 {
     public interface IOrganizationService : IApiService
     {
@@ -11,5 +12,5 @@ namespace Snapchat.ApiClient
 #pragma warning restore CA1716 // Identifiers should not match keywords
     }
 
-    
+
 }

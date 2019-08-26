@@ -1,14 +1,16 @@
 ﻿using RestSharp;
+using Snapchat.ApiClient.Entities.Api;
+using Snapchat.ApiClient.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 
-namespace Snapchat.ApiClient
+namespace Snapchat.ApiClient.Services
 {
     public class OrganizationService : BaseService, IOrganizationService
     {
-        public OrganizationService (AuthenticationService authenticationService) : base(authenticationService)
+        public OrganizationService(AuthenticationService authenticationService) : base(authenticationService)
         {
         }
 

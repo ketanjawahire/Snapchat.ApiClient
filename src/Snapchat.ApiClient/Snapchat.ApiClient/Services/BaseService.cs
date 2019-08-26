@@ -2,14 +2,17 @@
 using Newtonsoft.Json.Linq;
 using RestSharp;
 using RestSharp.Authenticators;
+using Snapchat.ApiClient.Exceptions;
+using Snapchat.ApiClient.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using UnauthorizedAccessException = Snapchat.ApiClient.Exceptions.UnauthorizedAccessException;
 
-namespace Snapchat.ApiClient
+namespace Snapchat.ApiClient.Services
 {
-    public abstract class BaseService: IApiService
+    public abstract class BaseService : IApiService
     {
         private const string _apiRequestBaseUrl = "https://adsapi.snapchat.com/";
         private const string _apiVersion = "v1";
@@ -37,15 +40,13 @@ namespace Snapchat.ApiClient
 
             var response = _restClient.Execute(restRequest);
 
-            if(response.StatusCode == HttpStatusCode.OK)
+            if (response.StatusCode == HttpStatusCode.OK)
             {
                 var result = Deserialize<T>(response.Content);
                 return result;
             }
-            else if(response.StatusCode == HttpStatusCode.Unauthorized)
-            {
+            else if (response.StatusCode == HttpStatusCode.Unauthorized)
                 throw new UnauthorizedAccessException();
-            }
 
             //TODO : move deserialize into seperate method
             var apiError = Deserialize<ApiError>(response.Content);
@@ -91,18 +92,15 @@ namespace Snapchat.ApiClient
 #pragma warning disable CA1054 // Uri parameters should not be strings
 #pragma warning disable CA1822 // Mark members as static
         protected IEnumerable<TEntity> ExecutePagedRequest<TRoot, TWrapper, TEntity>(string url, PagingOption pagingOption)
-            where TRoot :  class, IRootObject<TWrapper, TEntity>, new()
+            where TRoot : class, IRootObject<TWrapper, TEntity>, new()
             where TWrapper : class, IWrapper<TEntity>, new()
             where TEntity : class, IEntity, new()
 #pragma warning restore CA1822 // Mark members as static
 #pragma warning restore CA1054 // Uri parameters should not be strings
         {
             if (pagingOption is null)
-            {
 #pragma warning disable CA1303 // Do not pass literals as localized parameters
                 throw new ArgumentNullException(nameof(pagingOption), Constants.INVALID_PAGEOPTIONS);
-#pragma warning restore CA1303 // Do not pass literals as localized parameters
-            }
 
             List<TEntity> entities = null;
             var counter = 0;

@@ -1,4 +1,4 @@
-﻿namespace Snapchat.ApiClient
+﻿namespace Snapchat.ApiClient.Enums
 {
     public enum Level
     {

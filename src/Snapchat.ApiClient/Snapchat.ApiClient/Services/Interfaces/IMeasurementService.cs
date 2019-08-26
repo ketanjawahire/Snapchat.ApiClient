@@ -1,4 +1,4 @@
-﻿namespace Snapchat.ApiClient
+﻿namespace Snapchat.ApiClient.Services.Interfaces
 {
     public interface IMeasurementService : IApiService
     {

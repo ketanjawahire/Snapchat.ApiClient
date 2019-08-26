@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Snapchat.ApiClient.Enums;
+using System;
 
 namespace Snapchat.ApiClient
 {

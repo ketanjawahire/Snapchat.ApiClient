@@ -1,7 +1,8 @@
 ﻿using Newtonsoft.Json;
+using Snapchat.ApiClient.Enums;
 using System;
 
-namespace Snapchat.ApiClient
+namespace Snapchat.ApiClient.Entities.Api
 {
     public class Adsquad : IEntity
     {
@@ -45,6 +46,6 @@ namespace Snapchat.ApiClient
         public DateTime StartTime { get; set; }
 
         [JsonProperty("optimization_goal")]
-        public string OptimizationGoal { get; set; }
+        public OptimizationGoal OptimizationGoal { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace Snapchat.ApiClient
+namespace Snapchat.ApiClient.Entities.Api
 {
     public class Organization : IEntity
     {

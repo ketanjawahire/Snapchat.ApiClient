@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using RestSharp;
-using Snapchat.ApiClient.Services;
+using Snapchat.ApiClient.Entities.Api;
+using Snapchat.ApiClient.Services.Interfaces;
 
-namespace Snapchat.ApiClient
+namespace Snapchat.ApiClient.Services
 {
     internal class AdService : BaseService, IAdService
     {

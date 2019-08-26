@@ -1,9 +1,11 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
+using Snapchat.ApiClient.Entities.Api;
+using Snapchat.ApiClient.Exceptions;
 using System.Net;
 
-namespace Snapchat.ApiClient
+namespace Snapchat.ApiClient.Services
 {
     public class AuthenticationService
     {
@@ -38,9 +40,7 @@ namespace Snapchat.ApiClient
                 return result;
             }
             else if (response.StatusCode == HttpStatusCode.Unauthorized)
-            {
                 throw new UnauthorizedAccessException();
-            }
 
             //TODO : move deserialize into seperate method
             var apiError = Deserialize<ErrorResponse>(response.Content);

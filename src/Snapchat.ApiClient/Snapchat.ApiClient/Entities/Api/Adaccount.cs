@@ -1,8 +1,9 @@
 ﻿using Newtonsoft.Json;
+using Snapchat.ApiClient.Enums;
 using System;
 using System.Collections.Generic;
 
-namespace Snapchat.ApiClient
+namespace Snapchat.ApiClient.Entities.Api
 {
     public partial class Adaccount : IEntity
     {
@@ -19,7 +20,7 @@ namespace Snapchat.ApiClient
         public string Name { get; set; }
 
         [JsonProperty("type")]
-        public string Type { get; set; }
+        public AdAccountType Type { get; set; }
 
         [JsonProperty("status")]
         public string Status { get; set; }

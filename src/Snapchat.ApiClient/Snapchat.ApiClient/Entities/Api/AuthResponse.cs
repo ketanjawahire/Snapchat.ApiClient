@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Snapchat.ApiClient
+namespace Snapchat.ApiClient.Entities.Api
 {
     public partial class AuthResponse
     {

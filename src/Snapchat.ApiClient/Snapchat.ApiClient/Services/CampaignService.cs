@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using RestSharp;
+using Snapchat.ApiClient.Entities.Api;
+using Snapchat.ApiClient.Services.Interfaces;
 
-namespace Snapchat.ApiClient
+namespace Snapchat.ApiClient.Services
 {
     public class CampaignService : BaseService, ICampaignService
     {

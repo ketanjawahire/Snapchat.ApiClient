@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Snapchat.ApiClient.Entities.Api;
 using System.Collections.Generic;
 
 namespace Snapchat.ApiClient

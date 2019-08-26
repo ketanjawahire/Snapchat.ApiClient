@@ -1,7 +1,8 @@
 ﻿using Newtonsoft.Json;
+using Snapchat.ApiClient.Enums;
 using System;
 
-namespace Snapchat.ApiClient
+namespace Snapchat.ApiClient.Entities.Api
 {
     public partial class Campaign : IEntity
     {
@@ -24,7 +25,7 @@ namespace Snapchat.ApiClient
         public long? DailyBudgetMicro { get; set; }
 
         [JsonProperty("status")]
-        public string Status { get; set; }
+        public CampaignStatus Status { get; set; }
 
         [JsonProperty("start_time")]
         public DateTime StartTime { get; set; }
@@ -32,5 +33,4 @@ namespace Snapchat.ApiClient
         [JsonProperty("end_time")]
         public DateTime? EndTime { get; set; }
     }
-
 }

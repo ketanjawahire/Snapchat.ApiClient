@@ -1,8 +1,9 @@
 ﻿using Newtonsoft.Json;
+using Snapchat.ApiClient.Enums;
 using System;
 using System.Collections.Generic;
 
-namespace Snapchat.ApiClient
+namespace Snapchat.ApiClient.Entities.Api
 {
     public class Ad : IEntity
     {
@@ -25,21 +26,17 @@ namespace Snapchat.ApiClient
         public string CreativeId { get; set; }
 
         [JsonProperty("status")]
-        public string Status { get; set; }
+        public AdStatus Status { get; set; }
 
         [JsonProperty("type")]
-        public string Type { get; set; }
-
-        [JsonProperty("render_type")]
-        public string RenderType { get; set; }
+        public AdType Type { get; set; }
 
         [JsonProperty("review_status")]
-        public string ReviewStatus { get; set; }
+        public AdReviewStatus ReviewStatus { get; set; }
 
         [JsonProperty("review_status_reasons")]
 #pragma warning disable CA2227 // Collection properties should be read only
         public List<string> ReviewStatusReasons { get; set; }
 #pragma warning restore CA2227 // Collection properties should be read only
-
     }
 }

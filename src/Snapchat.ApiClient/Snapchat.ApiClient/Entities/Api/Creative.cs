@@ -1,7 +1,8 @@
 ﻿using Newtonsoft.Json;
+using Snapchat.ApiClient.Enums;
 using System;
 
-namespace Snapchat.ApiClient
+namespace Snapchat.ApiClient.Entities.Api
 {
     public class Creative : IEntity
     {
@@ -21,7 +22,7 @@ namespace Snapchat.ApiClient
         public string AdAccountId { get; set; }
 
         [JsonProperty("type")]
-        public string Type { get; set; }
+        public CreativeType Type { get; set; }
 
         [JsonProperty("packaging_status")]
         public string PackagingStatus { get; set; }
@@ -32,14 +33,14 @@ namespace Snapchat.ApiClient
         [JsonProperty("shareable")]
         public bool Shareable { get; set; }
 
-        [JsonProperty("call_to_action", NullValueHandling = NullValueHandling.Ignore)]
-        public string CallToAction { get; set; }
+        [JsonProperty("call_to_action")]
+        public CallToAction CallToAction { get; set; }
 
         [JsonProperty("top_snap_media_id")]
         public string TopSnapMediaId { get; set; }
 
         [JsonProperty("top_snap_crop_position")]
-        public string TopSnapCropPosition { get; set; }
+        public TopSnapCropPosition? TopSnapCropPosition { get; set; }
 
         [JsonProperty("longform_video_properties", NullValueHandling = NullValueHandling.Ignore)]
         public LongformVideoProperties LongformVideoProperties { get; set; }

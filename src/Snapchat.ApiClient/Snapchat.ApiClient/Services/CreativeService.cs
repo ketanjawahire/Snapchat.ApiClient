@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using RestSharp;
-using Snapchat.ApiClient.Services;
+using Snapchat.ApiClient.Entities.Api;
+using Snapchat.ApiClient.Services.Interfaces;
 
-namespace Snapchat.ApiClient
+namespace Snapchat.ApiClient.Services
 {
     internal class CreativeService : BaseService, ICreativeService
     {
@@ -25,7 +26,7 @@ namespace Snapchat.ApiClient
 
         public IEnumerable<Creative> GetByAdAccountId(string adAccountId, PagingOption pagingOption)
         {
-            var creatives = ExecutePagedRequest<CreativeRootObject, CreativeWrapper,Creative>($"/adaccounts/{adAccountId}/creatives", pagingOption);
+            var creatives = ExecutePagedRequest<CreativeRootObject, CreativeWrapper, Creative>($"/adaccounts/{adAccountId}/creatives", pagingOption);
 
             return creatives;
         }

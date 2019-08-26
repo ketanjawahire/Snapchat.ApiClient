@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
-namespace Snapchat.ApiClient
+namespace Snapchat.ApiClient.Exceptions
 {
 #pragma warning disable CA1032 // Implement standard exception constructors
+    [Serializable]
     public class ApiServiceNotFoundException : Exception
 #pragma warning restore CA1032 // Implement standard exception constructors
     {
@@ -12,6 +14,10 @@ namespace Snapchat.ApiClient
         public ApiServiceNotFoundException(Type serviceType) : base()
         {
             _serviceType = serviceType;
+        }
+
+        protected ApiServiceNotFoundException(SerializationInfo serializationInfo, StreamingContext streamingContext) : base(serializationInfo, streamingContext)
+        {
         }
     }
 }

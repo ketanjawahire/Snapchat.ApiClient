@@ -1,4 +1,6 @@
 ﻿using RestSharp;
+using Snapchat.ApiClient.Entities.Api;
+using Snapchat.ApiClient.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
