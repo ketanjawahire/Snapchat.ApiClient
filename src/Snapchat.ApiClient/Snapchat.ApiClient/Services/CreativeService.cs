@@ -1,25 +1,33 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using RestSharp;
 using Snapchat.ApiClient.Services;
 
 namespace Snapchat.ApiClient
 {
     internal class CreativeService : BaseService, ICreativeService
     {
-        private AuthenticationService _authService;
-
         public CreativeService(AuthenticationService authService) : base(authService)
         {
-            _authService = authService;
         }
 
         public Creative Get(string creativeId)
         {
-            throw new System.NotImplementedException();
+            var request = new RestRequest("/creatives/{creative_id}", Method.GET);
+            request.AddUrlSegment("creative_id", creativeId);
+
+            var response = Execute<CreativeRootObject>(request);
+
+            var result = Extract<CreativeRootObject, CreativeWrapper, Creative>(response);
+
+            return result.FirstOrDefault();
         }
 
         public IEnumerable<Creative> GetByAdAccountId(string adAccountId, PagingOption pagingOption)
         {
-            throw new System.NotImplementedException();
+            var creatives = ExecutePagedRequest<CreativeRootObject, CreativeWrapper,Creative>($"/adaccounts/{adAccountId}/creatives", pagingOption);
+
+            return creatives;
         }
     }
 }

@@ -1,30 +1,40 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using RestSharp;
 using Snapchat.ApiClient.Services;
 
 namespace Snapchat.ApiClient
 {
     internal class AdService : BaseService, IAdService
     {
-        private AuthenticationService _authService;
-
         public AdService(AuthenticationService authService) : base(authService)
         {
-            _authService = authService;
         }
 
         public Ad Get(string adId)
         {
-            throw new System.NotImplementedException();
+            var request = new RestRequest("/ads/{ad_id}", Method.GET);
+            request.AddUrlSegment("ad_id", adId);
+
+            var response = Execute<AdRootObject>(request);
+
+            var result = Extract<AdRootObject, AdWrapper, Ad>(response);
+
+            return result.FirstOrDefault();
         }
 
         public IEnumerable<Ad> GetByAdAccountId(string adAccountId, PagingOption pagingOption)
         {
-            throw new System.NotImplementedException();
+            var ads = ExecutePagedRequest<AdRootObject, AdWrapper, Ad>($"/adaccounts/{adAccountId}/ads", pagingOption);
+
+            return ads;
         }
 
         public IEnumerable<Ad> GetByAdSquadId(string adsquadId, PagingOption pagingOption)
         {
-            throw new System.NotImplementedException();
+            var ads = ExecutePagedRequest<AdRootObject, AdWrapper, Ad>($"/adsquads/{adsquadId}/ads", pagingOption);
+
+            return ads;
         }
     }
 }

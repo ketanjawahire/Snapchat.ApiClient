@@ -10,7 +10,6 @@ namespace Snapchat.ApiClient
     {
         public OrganizationService (AuthenticationService authenticationService) : base(authenticationService)
         {
-
         }
 
         public IEnumerable<Organization> Get(PagingOption pagingOption)
