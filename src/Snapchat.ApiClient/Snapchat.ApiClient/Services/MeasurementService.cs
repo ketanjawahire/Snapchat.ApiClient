@@ -11,18 +11,18 @@ namespace Snapchat.ApiClient.Services
         {
         }
 
-        public T GetStats<T>(string accountId, StatsOptions options) where T : class, new()
+        public T GetStats<T>(string entityId, StatsOptions options) where T : class, new()
         {
             var request = new RestRequest("/{entity_name}s/{entity_id}/stats", Method.GET);
 
-            request.AddUrlSegment("entity_id", accountId);
+            request.AddUrlSegment("entity_id", entityId);
 
 #pragma warning disable CA1308 // Normalize strings to uppercase
             request.AddUrlSegment("entity_name", options.Level.ToString().ToLowerInvariant());
 #pragma warning restore CA1308 // Normalize strings to uppercase
 
-            request.AddParameter("end_time", options.EndTime.ToString("yyyy-MM-ddTHH:mm:ss-07:00", CultureInfo.InvariantCulture));
-            request.AddParameter("start_time", options.StartTime.ToString("yyyy-MM-ddTHH:mm:ss-07:00", CultureInfo.InvariantCulture));
+            request.AddParameter("end_time", options.EndTime.ToString("yyyy-MM-ddTHH:mm:sszzz", CultureInfo.InvariantCulture));
+            request.AddParameter("start_time", options.StartTime.ToString("yyyy-MM-ddTHH:mm:sszzz", CultureInfo.InvariantCulture));
             request.AddParameter("granularity", options.Granularity.ToString());
 
             if (options.Fields != null && options.Fields.Any())
