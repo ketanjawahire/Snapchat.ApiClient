@@ -2,6 +2,6 @@
 {
     public interface IMeasurementService : IApiService
     {
-        T GetStats<T>(string accountId, StatsOptions options) where T : class, new();
+        T GetStats<T>(string entityId, StatsOptions options) where T : class, new();
     }
 }
