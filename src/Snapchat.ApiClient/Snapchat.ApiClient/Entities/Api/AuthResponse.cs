@@ -2,7 +2,7 @@
 
 namespace Snapchat.ApiClient.Entities.Api
 {
-    public partial class AuthResponse
+    public class AuthResponse
     {
         [JsonProperty("access_token")]
         public string AccessToken { get; set; }

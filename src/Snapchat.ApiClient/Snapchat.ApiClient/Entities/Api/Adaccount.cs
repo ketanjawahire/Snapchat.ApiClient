@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Snapchat.ApiClient.Entities.Api
 {
-    public partial class Adaccount : IEntity
+    public class Adaccount : IEntity
     {
         [JsonProperty("id")]
         public string Id { get; set; }

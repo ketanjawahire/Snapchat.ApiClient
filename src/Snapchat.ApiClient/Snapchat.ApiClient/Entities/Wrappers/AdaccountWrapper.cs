@@ -3,7 +3,7 @@ using Snapchat.ApiClient.Entities.Api;
 
 namespace Snapchat.ApiClient
 {
-    public partial class AdaccountWrapper : BaseWrapper<Adaccount>
+    public class AdaccountWrapper : BaseWrapper<Adaccount>
     {
         [JsonProperty("adaccount")]
         public override Adaccount Entity { get; set; }

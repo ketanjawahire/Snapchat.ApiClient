@@ -4,7 +4,7 @@ using System;
 
 namespace Snapchat.ApiClient.Entities.Api
 {
-    public partial class Campaign : IEntity
+    public class Campaign : IEntity
     {
         [JsonProperty("id")]
         public string Id { get; set; }

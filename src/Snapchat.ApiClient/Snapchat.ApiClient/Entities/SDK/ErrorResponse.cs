@@ -2,7 +2,7 @@
 
 namespace Snapchat.ApiClient
 {
-    public partial class ErrorResponse
+    public class ErrorResponse
     {
         [JsonProperty("error")]
         public string Error { get; set; }
