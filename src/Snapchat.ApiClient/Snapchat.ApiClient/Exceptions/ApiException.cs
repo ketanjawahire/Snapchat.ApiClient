@@ -9,19 +9,20 @@ namespace Snapchat.ApiClient.Exceptions
     public class ApiException : Exception
 #pragma warning restore CA1032 // Implement standard exception constructors
     {
-        //TODO : check accessibility again
-        private HttpStatusCode _statusCode;
-        private ApiError _apiError;
-        private ErrorResponse _errorResponse;
+        public HttpStatusCode httpStatusCode { get { return _statusCode; } }
+        public ApiError ApiError { get { return _apiError; } }
 
-        //TODO : generate & pass correct message to base
-        public ApiException(ApiError apiError, HttpStatusCode statusCode) : base()
+        private readonly HttpStatusCode _statusCode;
+        private readonly ApiError _apiError;
+        private readonly ErrorResponse _errorResponse;
+
+        public ApiException(ApiError apiError, HttpStatusCode statusCode) : base(apiError != null ? $"{apiError.DisplayMessage}. Check ApiError for more details." : string.Empty)
         {
             _statusCode = statusCode;
             _apiError = apiError;
         }
 
-        public ApiException(ErrorResponse errorResponse, HttpStatusCode statusCode) : base()
+        public ApiException(ErrorResponse errorResponse, HttpStatusCode statusCode) : base (errorResponse != null ? errorResponse.ErrorDescription  : string.Empty)
         {
             _statusCode = statusCode;
             _errorResponse = errorResponse;

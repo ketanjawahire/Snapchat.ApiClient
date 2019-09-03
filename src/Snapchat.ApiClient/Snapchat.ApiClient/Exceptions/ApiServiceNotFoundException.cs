@@ -10,8 +10,7 @@ namespace Snapchat.ApiClient.Exceptions
     {
         private Type _serviceType;
 
-        //TODO : generate & pass correct message to base
-        public ApiServiceNotFoundException(Type serviceType) : base()
+        public ApiServiceNotFoundException(Type serviceType) : base(serviceType != null ? $"Snapchat API service of type {serviceType.Name} is not implemented yet. Please contact developer." : "Service of given type is not implemented yet. Please contact developer.")
         {
             _serviceType = serviceType;
         }
