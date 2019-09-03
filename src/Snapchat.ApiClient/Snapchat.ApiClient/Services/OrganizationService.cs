@@ -8,9 +8,9 @@ using System.Linq;
 
 namespace Snapchat.ApiClient.Services
 {
-    public class OrganizationService : BaseService, IOrganizationService
+    internal class OrganizationService : BaseService, IOrganizationService
     {
-        public OrganizationService(AuthenticationService authenticationService) : base(authenticationService)
+        internal OrganizationService(AuthenticationService authenticationService) : base(authenticationService)
         {
         }
 

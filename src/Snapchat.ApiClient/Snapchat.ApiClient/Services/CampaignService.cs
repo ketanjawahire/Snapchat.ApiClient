@@ -8,9 +8,9 @@ using Snapchat.ApiClient.Services.Interfaces;
 
 namespace Snapchat.ApiClient.Services
 {
-    public class CampaignService : BaseService, ICampaignService
+    internal class CampaignService : BaseService, ICampaignService
     {
-        public CampaignService(AuthenticationService authenticationService) : base(authenticationService)
+        internal CampaignService(AuthenticationService authenticationService) : base(authenticationService)
         {
         }
 

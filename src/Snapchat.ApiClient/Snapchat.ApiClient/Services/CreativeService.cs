@@ -8,7 +8,7 @@ namespace Snapchat.ApiClient.Services
 {
     internal class CreativeService : BaseService, ICreativeService
     {
-        public CreativeService(AuthenticationService authService) : base(authService)
+        internal CreativeService(AuthenticationService authService) : base(authService)
         {
         }
 

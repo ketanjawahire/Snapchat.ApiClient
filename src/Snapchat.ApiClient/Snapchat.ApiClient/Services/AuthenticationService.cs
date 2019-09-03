@@ -7,14 +7,14 @@ using System.Net;
 
 namespace Snapchat.ApiClient.Services
 {
-    public class AuthenticationService
+    internal class AuthenticationService
     {
         private string _clientId;
         private string _clientSecret;
         private string _refreshToken;
         private IRestClient _restClient;
 
-        public AuthenticationService(string clientId, string clientSecret, string refreshToken)
+        internal AuthenticationService(string clientId, string clientSecret, string refreshToken)
         {
             _clientId = clientId;
             _clientSecret = clientSecret;

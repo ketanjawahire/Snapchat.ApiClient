@@ -7,7 +7,7 @@ namespace Snapchat.ApiClient.Services
 {
     internal class MeasurementService : BaseService, IMeasurementService
     {
-        public MeasurementService(AuthenticationService authService) : base(authService)
+        internal MeasurementService(AuthenticationService authService) : base(authService)
         {
         }
 

@@ -12,7 +12,7 @@ using UnauthorizedAccessException = Snapchat.ApiClient.Exceptions.UnauthorizedAc
 
 namespace Snapchat.ApiClient.Services
 {
-    public abstract class BaseService : IApiService
+    internal abstract class BaseService : IApiService
     {
         private const string _apiRequestBaseUrl = "https://adsapi.snapchat.com/";
         private const string _apiVersion = "v1";
