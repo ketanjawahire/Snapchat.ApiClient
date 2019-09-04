@@ -34,6 +34,12 @@ namespace Snapchat.ApiClient.Entities.Api
         public string Name { get; set; }
 
         /// <summary>
+        /// Gets or sets creative headline.
+        /// </summary>
+        [JsonProperty("headline")]
+        public string Headline { get; set; }
+
+        /// <summary>
         /// Gets or sets ad account id.
         /// </summary>
         [JsonProperty("ad_account_id")]
