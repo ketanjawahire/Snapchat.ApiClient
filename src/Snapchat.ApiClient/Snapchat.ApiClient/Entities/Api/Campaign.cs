@@ -62,5 +62,17 @@ namespace Snapchat.ApiClient.Entities.Api
         /// </summary>
         [JsonProperty("end_time")]
         public DateTime? EndTime { get; set; }
+
+        /// <summary>
+        /// Gets or sets Lifetime spend cap for the campaign.
+        /// </summary>
+        [JsonProperty("lifetime_spend_cap_micro")]
+        public long? LifetimeSpendCapMicro { get; set; }
+
+        /// <summary>
+        /// Gets or sets campaign objective.
+        /// </summary>
+        [JsonProperty("objective")]
+        public string Objective { get; set; }
     }
 }
