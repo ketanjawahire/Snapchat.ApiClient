@@ -26,7 +26,7 @@ namespace Snapchat.ApiClient.Services
         public Adsquad Get(string adsquaqId)
         {
             var request = new RestRequest("/adsquads/{adsquad_id}", Method.GET);
-            request.AddUrlSegment("adsquad", adsquaqId);
+            request.AddUrlSegment("adsquad_id", adsquaqId);
 
             var response = Execute<AdSquadRootObject>(request);
 
