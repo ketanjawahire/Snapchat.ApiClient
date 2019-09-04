@@ -1,12 +1,15 @@
-﻿using Newtonsoft.Json;
+﻿using System.Net;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 using Snapchat.ApiClient.Entities.Api;
 using Snapchat.ApiClient.Exceptions;
-using System.Net;
 
 namespace Snapchat.ApiClient.Services
 {
+    /// <summary>
+    /// Provides methods to do authorization operations on Snapchat API.
+    /// </summary>
     internal class AuthenticationService
     {
         private string _clientId;
@@ -14,6 +17,12 @@ namespace Snapchat.ApiClient.Services
         private string _refreshToken;
         private IRestClient _restClient;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AuthenticationService"/> class.
+        /// </summary>
+        /// <param name="clientId">Client Id.</param>
+        /// <param name="clientSecret">Client secret.</param>
+        /// <param name="refreshToken">Refresh token.</param>
         internal AuthenticationService(string clientId, string clientSecret, string refreshToken)
         {
             _clientId = clientId;
@@ -23,6 +32,10 @@ namespace Snapchat.ApiClient.Services
             _restClient = new RestClient("https://accounts.snapchat.com/");
         }
 
+        /// <summary>
+        /// It does authorization on Snapchat API.
+        /// </summary>
+        /// <returns>Authorization response.</returns>
         public AuthResponse Get()
         {
             var request = new RestRequest("/login/oauth2/access_token", Method.POST);
@@ -40,9 +53,11 @@ namespace Snapchat.ApiClient.Services
                 return result;
             }
             else if (response.StatusCode == HttpStatusCode.Unauthorized)
+            {
                 throw new UnauthorizedAccessException();
+            }
 
-            //TODO : move deserialize into seperate method
+            // TODO : move deserialize into seperate method
             var apiError = Deserialize<ErrorResponse>(response.Content);
 
             throw new ApiException(apiError, response.StatusCode);
@@ -55,13 +70,14 @@ namespace Snapchat.ApiClient.Services
                 CheckAdditionalContent = true,
                 MissingMemberHandling = MissingMemberHandling.Ignore,
                 ConstructorHandling = ConstructorHandling.Default,
-                ObjectCreationHandling = ObjectCreationHandling.Auto
+                ObjectCreationHandling = ObjectCreationHandling.Auto,
             };
 
             return jsonSerializer;
         }
 
-        private T Deserialize<T>(string content) where T : class, new()
+        private T Deserialize<T>(string content)
+            where T : class, new()
         {
             var jsonSerializer = GetJsonSerializer();
 

@@ -2,10 +2,18 @@
 
 namespace Snapchat.ApiClient
 {
-    public abstract class BaseWrapper<T> : IWrapper<T> where T: IEntity
+    /// <summary>
+    /// Represents wrapper for <typeparamref name="TEntity"/>.
+    /// </summary>
+    /// <typeparam name="TEntity">Any object of type <see cref="IEntity"/>.</typeparam>
+    public abstract class BaseWrapper<TEntity> : IWrapper<TEntity>
+        where TEntity : IEntity
     {
+        /// <inheritdoc/>
         [JsonProperty("sub_request_status")]
         public string SubRequestStatus { get; set; }
-        public abstract T Entity { get; set; }
+
+        /// <inheritdoc/>
+        public abstract TEntity Entity { get; set; }
     }
 }

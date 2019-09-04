@@ -1,17 +1,27 @@
-﻿using RestSharp;
-using Snapchat.ApiClient.Services.Interfaces;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Linq;
+using RestSharp;
+using Snapchat.ApiClient.Services.Interfaces;
 
 namespace Snapchat.ApiClient.Services
 {
+    /// <summary>
+    /// Provides methods to get measurement data using Snapchat API.
+    /// </summary>
     internal class MeasurementService : BaseService, IMeasurementService
     {
-        internal MeasurementService(AuthenticationService authService) : base(authService)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MeasurementService"/> class.
+        /// </summary>
+        /// <param name="authService">Instance of <see cref="AuthenticationService"/>.</param>
+        internal MeasurementService(AuthenticationService authService)
+            : base(authService)
         {
         }
 
-        public T GetStats<T>(string entityId, StatsOptions options) where T : class, new()
+        /// <inheritdoc/>
+        public T GetStats<T>(string entityId, StatsOptions options)
+            where T : class, new()
         {
             var request = new RestRequest("/{entity_name}s/{entity_id}/stats", Method.GET);
 
@@ -65,7 +75,6 @@ namespace Snapchat.ApiClient.Services
             var response = Execute<T>(request);
 
             return response;
-
         }
     }
 }

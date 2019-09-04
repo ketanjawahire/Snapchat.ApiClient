@@ -1,8 +1,18 @@
 ﻿namespace Snapchat.ApiClient.Enums
 {
+    /// <summary>
+    /// Represents ad account type.
+    /// </summary>
     public enum AdAccountType
     {
+        /// <summary>
+        /// Direct
+        /// </summary>
         DIRECT,
-        PARTNER
+
+        /// <summary>
+        /// Partner
+        /// </summary>
+        PARTNER,
     }
 }

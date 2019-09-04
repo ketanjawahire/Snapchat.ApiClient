@@ -1,19 +1,28 @@
-﻿using RestSharp;
-using Snapchat.ApiClient.Entities.Api;
-using Snapchat.ApiClient.Services.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using RestSharp;
+using Snapchat.ApiClient.Entities.Api;
+using Snapchat.ApiClient.Services.Interfaces;
 
 namespace Snapchat.ApiClient.Services
 {
+    /// <summary>
+    /// Provides methods to do organization level operation on Snapchat API.
+    /// </summary>
     internal class OrganizationService : BaseService, IOrganizationService
     {
-        internal OrganizationService(AuthenticationService authenticationService) : base(authenticationService)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OrganizationService"/> class.
+        /// </summary>
+        /// <param name="authenticationService">Instance of <see cref="AuthenticationService"/>.</param>
+        internal OrganizationService(AuthenticationService authenticationService)
+            : base(authenticationService)
         {
         }
 
+        /// <inheritdoc/>
         public IEnumerable<Organization> Get(PagingOption pagingOption)
         {
             var organizations = ExecutePagedRequest<OrganizationRootObject, OrganizationWrapper, Organization>("/me/organizations", pagingOption);
@@ -21,6 +30,7 @@ namespace Snapchat.ApiClient.Services
             return organizations;
         }
 
+        /// <inheritdoc/>
         public Organization GetById(string organizationId)
         {
             var request = new RestRequest("/organizations/{organization_id}", Method.GET);
@@ -30,5 +40,4 @@ namespace Snapchat.ApiClient.Services
             return result.FirstOrDefault();
         }
     }
-
 }

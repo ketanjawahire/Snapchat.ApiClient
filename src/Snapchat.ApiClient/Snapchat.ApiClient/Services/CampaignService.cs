@@ -8,12 +8,21 @@ using Snapchat.ApiClient.Services.Interfaces;
 
 namespace Snapchat.ApiClient.Services
 {
+    /// <summary>
+    /// Provides methods to do campaign level operation on Snapchat API.
+    /// </summary>
     internal class CampaignService : BaseService, ICampaignService
     {
-        internal CampaignService(AuthenticationService authenticationService) : base(authenticationService)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CampaignService"/> class.
+        /// </summary>
+        /// <param name="authenticationService">Instance of <see cref="AuthenticationService"/>.</param>
+        internal CampaignService(AuthenticationService authenticationService)
+            : base(authenticationService)
         {
         }
 
+        /// <inheritdoc/>
         public IEnumerable<Campaign> GetByAccountId(string adAccountId, PagingOption pagingOption)
         {
             var campaigns = ExecutePagedRequest<CampaignRootObject, CampaignWrapper, Campaign>($"/adaccounts/{adAccountId}/campaigns", pagingOption);
@@ -21,6 +30,7 @@ namespace Snapchat.ApiClient.Services
             return campaigns;
         }
 
+        /// <inheritdoc/>
         public Campaign GetById(string campaignId)
         {
             var request = new RestRequest("/campaigns/{campaign_id}", Method.GET);

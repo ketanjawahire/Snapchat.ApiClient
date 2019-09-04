@@ -3,8 +3,12 @@ using Snapchat.ApiClient.Entities.Api;
 
 namespace Snapchat.ApiClient
 {
-    public class CreativeWrapper :  BaseWrapper<Creative>
+    /// <summary>
+    /// Represents wrapper for <see cref="Creative"/>.
+    /// </summary>
+    public class CreativeWrapper : BaseWrapper<Creative>
     {
+        /// <inheritdoc/>
         [JsonProperty("creative")]
         public override Creative Entity { get; set; }
     }

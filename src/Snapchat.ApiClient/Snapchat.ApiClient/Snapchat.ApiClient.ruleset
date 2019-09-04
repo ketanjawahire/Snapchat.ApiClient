@@ -739,7 +739,7 @@
     <Rule Id="SA1124" Action="Hidden" />
     <Rule Id="SA1127" Action="Error" />
     <Rule Id="SA1128" Action="Error" />
-    <Rule Id="SA1200" Action="Error" />
+    <Rule Id="SA1200" Action="Hidden" />
     <Rule Id="SA1201" Action="Error" />
     <Rule Id="SA1202" Action="Error" />
     <Rule Id="SA1203" Action="Error" />
