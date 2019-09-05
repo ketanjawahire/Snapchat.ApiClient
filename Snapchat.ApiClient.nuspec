@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<package >
+	<metadata>
+		<id>Snapchat.ApiClient</id>
+		<version>0.0.2-beta</version>
+		<title>Snapchat.ApiClient</title>
+		<authors>KetanJawahire</authors>
+		<owners>KetanJawahire</owners>
+		<licenseUrl>https://github.com/ketanjawahire/Snapchat.ApiClient/blob/master/LICENSE</licenseUrl>
+		<projectUrl>https://github.com/ketanjawahire/Snapchat.ApiClient</projectUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>C# SDK for Snapchat Marketing API</description>
+		<releaseNotes></releaseNotes>
+		<copyright>Copyright 2019</copyright>
+		<tags>Snapchat Snapchat-Api Snapchat-Ads Snapchat-Ads-Api C#</tags>
+		<dependencies>
+			<group targetFramework=".NETFramework4.5.2" >
+				<dependency id="Newtonsoft.Json" version="12.0.2" exclude="Build,Analyzers" />
+				<dependency id="RestSharp" version="106.6.10" exclude="Build,Analyzers" />
+				<dependency id="System.Runtime.Caching" version="4.5.0" exclude="Build,Analyzers" />
+			</group>
+			<group targetFramework=".NETStandard2.0">
+				<dependency id="Newtonsoft.Json" version="12.0.2" exclude="Build,Analyzers" />
+				<dependency id="RestSharp" version="106.6.10" exclude="Build,Analyzers" />
+				<dependency id="System.Runtime.Caching" version="4.5.0" exclude="Build,Analyzers" />
+			</group>
+		</dependencies>
+	</metadata>
+	<files>
+		<file src="src\Snapchat.ApiClient\Snapchat.ApiClient\bin\Release\net452\Snapchat.ApiClient.dll" target="lib\net452\" />
+		<file src="src\Snapchat.ApiClient\Snapchat.ApiClient\bin\Release\netstandard2.0\Snapchat.ApiClient.dll" target="lib\netstandard2.0\" />
+		<file src="src\Snapchat.ApiClient\Snapchat.ApiClient\bin\Release\Snapchat.ApiClient.xml" target="lib\net452\" />
+		<file src="src\Snapchat.ApiClient\Snapchat.ApiClient\bin\Release\Snapchat.ApiClient.xml" target="lib\netstandard2.0\" />
+	</files>
+</package>
