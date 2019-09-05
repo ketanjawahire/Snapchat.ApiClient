@@ -8,7 +8,7 @@ namespace Snapchat.ApiClient.Services
     /// </summary>
     public class SnapchatServices
     {
-        private AuthenticationService _authService;
+        private readonly AuthenticationService _authService;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SnapchatServices"/> class.

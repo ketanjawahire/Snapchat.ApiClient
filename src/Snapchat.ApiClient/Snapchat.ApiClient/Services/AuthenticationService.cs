@@ -1,9 +1,12 @@
-﻿using System.Net;
+﻿using System.IO;
+using System.Net;
+using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 using Snapchat.ApiClient.Entities.Api;
 using Snapchat.ApiClient.Exceptions;
+using Snapchat.ApiClient.Helpers;
 
 namespace Snapchat.ApiClient.Services
 {
@@ -12,10 +15,11 @@ namespace Snapchat.ApiClient.Services
     /// </summary>
     internal class AuthenticationService
     {
-        private string _clientId;
-        private string _clientSecret;
-        private string _refreshToken;
-        private IRestClient _restClient;
+        private static AccessTokenCacheProvider _accessTokenCacheProvider;
+        private readonly string _clientId;
+        private readonly string _clientSecret;
+        private readonly string _refreshToken;
+        private readonly IRestClient _restClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AuthenticationService"/> class.
@@ -30,6 +34,11 @@ namespace Snapchat.ApiClient.Services
             _refreshToken = refreshToken;
 
             _restClient = new RestClient("https://accounts.snapchat.com/");
+
+            if (_accessTokenCacheProvider is null)
+            {
+                _accessTokenCacheProvider = new AccessTokenCacheProvider();
+            }
         }
 
         /// <summary>
@@ -37,6 +46,46 @@ namespace Snapchat.ApiClient.Services
         /// </summary>
         /// <returns>Authorization response.</returns>
         public AuthResponse Get()
+        {
+            if (GetAccessTokenFromCache(out AuthResponse cachedResponse))
+            {
+                return cachedResponse;
+            }
+
+            var response = GetAccessTokenFromApi();
+
+            AddTokenToCache(response);
+
+            return response;
+        }
+
+        private static JsonSerializer GetJsonSerializer()
+        {
+            var jsonSerializer = new JsonSerializer
+            {
+                CheckAdditionalContent = true,
+                MissingMemberHandling = MissingMemberHandling.Ignore,
+                ConstructorHandling = ConstructorHandling.Default,
+                ObjectCreationHandling = ObjectCreationHandling.Auto,
+            };
+
+            return jsonSerializer;
+        }
+
+        private static string Serialize(object input)
+        {
+            var jsonSerializer = GetJsonSerializer();
+            var result = new StringBuilder();
+
+            using (var writer = new JsonTextWriter(new StringWriter(result)) { Formatting = Formatting.None })
+            {
+                jsonSerializer.Serialize(writer, input);
+            }
+
+            return result.ToString();
+        }
+
+        private AuthResponse GetAccessTokenFromApi()
         {
             var request = new RestRequest("/login/oauth2/access_token", Method.POST);
 
@@ -63,17 +112,28 @@ namespace Snapchat.ApiClient.Services
             throw new ApiException(apiError, response.StatusCode);
         }
 
-        private static JsonSerializer GetJsonSerializer()
+        private bool GetAccessTokenFromCache(out AuthResponse authResponse)
         {
-            var jsonSerializer = new JsonSerializer
-            {
-                CheckAdditionalContent = true,
-                MissingMemberHandling = MissingMemberHandling.Ignore,
-                ConstructorHandling = ConstructorHandling.Default,
-                ObjectCreationHandling = ObjectCreationHandling.Auto,
-            };
+            authResponse = new AuthResponse();
 
-            return jsonSerializer;
+            if (_accessTokenCacheProvider.Contains(_refreshToken))
+            {
+                var cachedValue = _accessTokenCacheProvider.Get(_refreshToken);
+
+                if (!string.IsNullOrEmpty(cachedValue))
+                {
+                    authResponse = Deserialize<AuthResponse>(cachedValue);
+
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private void AddTokenToCache(AuthResponse authResponse)
+        {
+            _accessTokenCacheProvider.Add(_refreshToken, Serialize(authResponse));
         }
 
         private T Deserialize<T>(string content)

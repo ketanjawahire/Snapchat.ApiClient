@@ -16,7 +16,7 @@ namespace Snapchat.ApiClient.Services
         /// <summary>
         /// Initializes a new instance of the <see cref="AdAccountService"/> class.
         /// </summary>
-        /// <param name="authenticationService">Instance of <see cref="AuthenticationService"/></param>
+        /// <param name="authenticationService">Instance of <see cref="AuthenticationService"/>.</param>
         internal AdAccountService(AuthenticationService authenticationService)
             : base(authenticationService)
         {
