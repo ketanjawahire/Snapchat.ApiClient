@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Snapchat.ApiClient.Enums;
 
 namespace Snapchat.ApiClient.Entities.Api
@@ -38,6 +39,7 @@ namespace Snapchat.ApiClient.Entities.Api
         /// Gets or sets ad account type.
         /// </summary>
         [JsonProperty("type")]
+        [JsonConverter(typeof(StringEnumConverter))]
         public AdAccountType Type { get; set; }
 
         /// <summary>

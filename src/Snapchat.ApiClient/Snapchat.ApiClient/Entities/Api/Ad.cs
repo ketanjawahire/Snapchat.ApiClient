@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Snapchat.ApiClient.Enums;
 
 namespace Snapchat.ApiClient.Entities.Api
@@ -50,18 +51,21 @@ namespace Snapchat.ApiClient.Entities.Api
         /// Gets or sets As status.
         /// </summary>
         [JsonProperty("status")]
+        [JsonConverter(typeof(StringEnumConverter))]
         public AdStatus Status { get; set; }
 
         /// <summary>
         /// Gets or sets ad type.
         /// </summary>
         [JsonProperty("type")]
+        [JsonConverter(typeof(StringEnumConverter))]
         public AdType Type { get; set; }
 
         /// <summary>
         /// Gets or sets ad review status.
         /// </summary>
         [JsonProperty("review_status")]
+        [JsonConverter(typeof(StringEnumConverter))]
         public AdReviewStatus ReviewStatus { get; set; }
 
         /// <summary>

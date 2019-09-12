@@ -1,125 +1,127 @@
 ﻿namespace Snapchat.ApiClient.Enums
 {
+#pragma warning disable CA1008 // Enums should have zero value
     /// <summary>
     /// Represents call to actions.
     /// </summary>
     public enum CallToAction
+#pragma warning restore CA1008 // Enums should have zero value
     {
 #pragma warning disable CA1707 // Identifiers should not contain underscores
         /// <summary>
         /// BLANK
         /// </summary>
-        BLANK,
+        BLANK = 1,
 
         /// <summary>
         /// INSTALL_NOW
         /// </summary>
-        INSTALL_NOW,
+        INSTALL_NOW = 2,
 
         /// <summary>
         /// WATCH
         /// </summary>
-        WATCH,
+        WATCH = 3,
 
         /// <summary>
         /// VIEW_MORE
         /// </summary>
-        VIEW_MORE,
+        VIEW_MORE = 4,
 
         /// <summary>
         /// WATCH_EPISODE
         /// </summary>
-        WATCH_EPISODE,
+        WATCH_EPISODE = 5,
 
         /// <summary>
         /// DOWNLOAD
         /// </summary>
-        DOWNLOAD,
+        DOWNLOAD = 6,
 
         /// <summary>
         /// PLAY
         /// </summary>
-        PLAY,
+        PLAY = 7,
 
         /// <summary>
         /// SHOP_NOW
         /// </summary>
-        SHOP_NOW,
+        SHOP_NOW = 8,
 
         /// <summary>
         /// SIGN_UP
         /// </summary>
-        SIGN_UP,
+        SIGN_UP = 9,
 
         /// <summary>
         /// USE_APP
         /// </summary>
-        USE_APP,
+        USE_APP = 10,
 
         /// <summary>
         /// APPLY_NOW
         /// </summary>
-        APPLY_NOW,
+        APPLY_NOW = 11,
 
         /// <summary>
         /// BOOK_NOW
         /// </summary>
-        BOOK_NOW,
+        BOOK_NOW = 12,
 
         /// <summary>
         /// BUY_TICKETS
         /// </summary>
-        BUY_TICKETS,
+        BUY_TICKETS = 13,
 
         /// <summary>
         /// GET_NOW
         /// </summary>
-        GET_NOW,
+        GET_NOW = 14,
 
         /// <summary>
         /// LISTEN
         /// </summary>
-        LISTEN,
+        LISTEN = 15,
 
         /// <summary>
         /// MORE
         /// </summary>
-        MORE,
+        MORE = 16,
 
         /// <summary>
         /// ORDER_NOW
         /// </summary>
-        ORDER_NOW,
+        ORDER_NOW = 17,
 
         /// <summary>
         /// READ
         /// </summary>
-        READ,
+        READ = 18,
 
         /// <summary>
         /// SHOW
         /// </summary>
-        SHOW,
+        SHOW = 19,
 
         /// <summary>
         /// SHOWTIMES
         /// </summary>
-        SHOWTIMES,
+        SHOWTIMES = 20,
 
         /// <summary>
         /// VIEW
         /// </summary>
-        VIEW,
+        VIEW = 21,
 
         /// <summary>
         /// OPEN_APP
         /// </summary>
-        OPEN_APP,
+        OPEN_APP = 22,
 
         /// <summary>
         /// TRY
         /// </summary>
-        TRY,
+        TRY = 23,
 #pragma warning restore CA1707 // Identifiers should not contain underscores
     }
 }

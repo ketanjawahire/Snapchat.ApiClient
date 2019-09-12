@@ -1,5 +1,6 @@
 ﻿using System;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Snapchat.ApiClient.Enums;
 
 namespace Snapchat.ApiClient.Entities.Api
@@ -37,7 +38,8 @@ namespace Snapchat.ApiClient.Entities.Api
         /// Gets or sets adsquad status.
         /// </summary>
         [JsonProperty("status")]
-        public string Status { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public AdSquadStatus Status { get; set; }
 
         /// <summary>
         /// Gets or sets campaign id.
@@ -91,6 +93,7 @@ namespace Snapchat.ApiClient.Entities.Api
         /// Gets or sets optimization goal.
         /// </summary>
         [JsonProperty("optimization_goal")]
+        [JsonConverter(typeof(StringEnumConverter))]
         public OptimizationGoal OptimizationGoal { get; set; }
     }
 }

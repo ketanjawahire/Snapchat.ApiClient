@@ -2,19 +2,19 @@
 {
 #pragma warning disable CA1008 // Enums should have zero value
     /// <summary>
-    /// Represents breakdown.
+    /// Represents Ad squad statuses.
     /// </summary>
-    public enum Breakdown
+    public enum AdSquadStatus
 #pragma warning restore CA1008 // Enums should have zero value
     {
         /// <summary>
-        /// Ad
+        /// ACTIVE.
         /// </summary>
-        Ad = 1,
+        ACTIVE = 1,
 
         /// <summary>
-        /// Ad squad
+        /// PAUSED.
         /// </summary>
-        AdSquad = 2,
+        PAUSED,
     }
 }
