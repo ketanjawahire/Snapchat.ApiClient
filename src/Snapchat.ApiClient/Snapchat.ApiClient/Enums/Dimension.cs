@@ -1,28 +1,30 @@
 ﻿namespace Snapchat.ApiClient.Enums
 {
+#pragma warning disable CA1008 // Enums should have zero value
     /// <summary>
     /// Represents data dimensions.
     /// </summary>
     public enum Dimension
+#pragma warning restore CA1008 // Enums should have zero value
     {
         /// <summary>
         /// GEO
         /// </summary>
-        GEO,
+        GEO = 1,
 
         /// <summary>
         /// DEMO
         /// </summary>
-        DEMO,
+        DEMO = 2,
 
         /// <summary>
         /// INTEREST
         /// </summary>
-        INTEREST,
+        INTEREST = 3,
 
         /// <summary>
         /// DEVICE
         /// </summary>
-        DEVICE,
+        DEVICE = 4,
     }
 }

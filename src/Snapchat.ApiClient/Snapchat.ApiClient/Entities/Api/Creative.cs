@@ -1,5 +1,6 @@
 ﻿using System;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Snapchat.ApiClient.Enums;
 
 namespace Snapchat.ApiClient.Entities.Api
@@ -49,6 +50,7 @@ namespace Snapchat.ApiClient.Entities.Api
         /// Gets or sets creative type.
         /// </summary>
         [JsonProperty("type")]
+        [JsonConverter(typeof(StringEnumConverter))]
         public CreativeType Type { get; set; }
 
         /// <summary>
@@ -73,6 +75,7 @@ namespace Snapchat.ApiClient.Entities.Api
         /// Gets or sets call to action type.
         /// </summary>
         [JsonProperty("call_to_action")]
+        [JsonConverter(typeof(StringEnumConverter))]
         public CallToAction CallToAction { get; set; }
 
         /// <summary>
@@ -85,6 +88,7 @@ namespace Snapchat.ApiClient.Entities.Api
         /// Gets or sets top snap crop position.
         /// </summary>
         [JsonProperty("top_snap_crop_position")]
+        [JsonConverter(typeof(StringEnumConverter))]
         public TopSnapCropPosition? TopSnapCropPosition { get; set; }
 
         /// <summary>

@@ -1,28 +1,30 @@
 ﻿namespace Snapchat.ApiClient.Enums
 {
+#pragma warning disable CA1008 // Enums should have zero value
     /// <summary>
     /// Represents top snap cop position.
     /// </summary>
     public enum TopSnapCropPosition
+#pragma warning restore CA1008 // Enums should have zero value
     {
         /// <summary>
         /// OPTIMIZED
         /// </summary>
-        OPTIMIZED,
+        OPTIMIZED = 1,
 
         /// <summary>
         /// MIDDLE
         /// </summary>
-        MIDDLE,
+        MIDDLE = 2,
 
         /// <summary>
         /// TOP
         /// </summary>
-        TOP,
+        TOP = 3,
 
         /// <summary>
         /// BOTTOM
         /// </summary>
-        BOTTOM,
+        BOTTOM = 4,
     }
 }

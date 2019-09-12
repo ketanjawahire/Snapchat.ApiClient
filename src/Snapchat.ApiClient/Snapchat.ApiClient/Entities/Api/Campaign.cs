@@ -1,5 +1,6 @@
 ﻿using System;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Snapchat.ApiClient.Enums;
 
 namespace Snapchat.ApiClient.Entities.Api
@@ -49,6 +50,7 @@ namespace Snapchat.ApiClient.Entities.Api
         /// Gets or sets status.
         /// </summary>
         [JsonProperty("status")]
+        [JsonConverter(typeof(StringEnumConverter))]
         public CampaignStatus Status { get; set; }
 
         /// <summary>
