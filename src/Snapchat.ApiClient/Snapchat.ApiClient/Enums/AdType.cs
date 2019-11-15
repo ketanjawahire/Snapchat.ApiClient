@@ -67,6 +67,11 @@
         /// COLLECTION
         /// </summary>
         COLLECTION = 12,
+
+        /// <summary>
+        /// FILTER
+        /// </summary>
+        FILTER = 13,
 #pragma warning restore CA1707 // Identifiers should not contain underscores
     }
 }
