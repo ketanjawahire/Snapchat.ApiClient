@@ -2,7 +2,7 @@
 <package >
 	<metadata>
 		<id>Snapchat.ApiClient</id>
-		<version>0.0.3-beta</version>
+		<version>0.0.6-beta</version>
 		<title>Snapchat.ApiClient</title>
 		<authors>KetanJawahire</authors>
 		<owners>KetanJawahire</owners>
