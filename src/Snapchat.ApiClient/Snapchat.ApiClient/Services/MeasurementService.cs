@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Linq;
 using RestSharp;
 using Snapchat.ApiClient.Services.Interfaces;
@@ -31,8 +32,8 @@ namespace Snapchat.ApiClient.Services
             request.AddUrlSegment("entity_name", options.Level.ToString().ToLowerInvariant());
 #pragma warning restore CA1308 // Normalize strings to uppercase
 
-            request.AddParameter("end_time", options.EndTime.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss", CultureInfo.InvariantCulture));
-            request.AddParameter("start_time", options.StartTime.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss", CultureInfo.InvariantCulture));
+            request.AddParameter("end_time", options.EndTime.ToString("yyyy-MM-ddTHH:mm:sszzz", CultureInfo.InvariantCulture));
+            request.AddParameter("start_time", options.StartTime.ToString("yyyy-MM-ddTHH:mm:sszzz", CultureInfo.InvariantCulture));
             request.AddParameter("granularity", options.Granularity.ToString());
 
             if (options.Fields != null && options.Fields.Any())

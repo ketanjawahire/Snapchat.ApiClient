@@ -15,6 +15,6 @@
         /// <summary>
         /// Paused
         /// </summary>
-        PAUSED = 2,
+        PAUSED = 3,
     }
 }
