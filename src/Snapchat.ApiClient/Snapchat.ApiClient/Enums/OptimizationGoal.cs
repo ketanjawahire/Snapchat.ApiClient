@@ -72,6 +72,11 @@
         /// APP_SIGNUP
         /// </summary>
         APP_SIGNUP = 13,
+
+        /// <summary>
+        /// VIDEO_VIEWS_15_SEC
+        /// </summary>
+        VIDEO_VIEWS_15_SEC = 14,
 #pragma warning restore CA1707 // Identifiers should not contain underscores
     }
 }
