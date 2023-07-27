@@ -11,67 +11,67 @@
         /// <summary>
         /// SNAP_AD
         /// </summary>
-        SNAP_AD = 1,
+        SNAP_AD = 43,
 
         /// <summary>
         /// LONGFORM_VIDEO
         /// </summary>
-        LONGFORM_VIDEO = 2,
+        LONGFORM_VIDEO = 44,
 
         /// <summary>
         /// APP_INSTALL
         /// </summary>
-        APP_INSTALL = 3,
+        APP_INSTALL = 45,
 
         /// <summary>
         /// REMOTE_WEBPAGE
         /// </summary>
-        REMOTE_WEBPAGE = 4,
+        REMOTE_WEBPAGE = 46,
 
         /// <summary>
         /// DEEP_LINK
         /// </summary>
-        DEEP_LINK = 5,
+        DEEP_LINK = 47,
 
         /// <summary>
         /// STORY
         /// </summary>
-        STORY = 6,
+        STORY = 48,
 
         /// <summary>
         /// AD_TO_LENS
         /// </summary>
-        AD_TO_LENS = 7,
+        AD_TO_LENS = 49,
 
         /// <summary>
         /// LENS_REMOTE_WEBPAGE
         /// </summary>
-        LENS_REMOTE_WEBPAGE = 8,
+        LENS_REMOTE_WEBPAGE = 50,
 
         /// <summary>
         /// LENS_APP_INSTALL
         /// </summary>
-        LENS_APP_INSTALL = 9,
+        LENS_APP_INSTALL = 51,
 
         /// <summary>
         /// LENS_DEEP_LINK
         /// </summary>
-        LENS_DEEP_LINK = 10,
+        LENS_DEEP_LINK = 52,
 
         /// <summary>
         /// LENS_LONGFORM_VIDEO
         /// </summary>
-        LENS_LONGFORM_VIDEO = 11,
+        LENS_LONGFORM_VIDEO = 53,
 
         /// <summary>
         /// COLLECTION
         /// </summary>
-        COLLECTION = 12,
+        COLLECTION = 54,
 
         /// <summary>
         /// FILTER
         /// </summary>
-        FILTER = 13,
+        FILTER = 55,
 #pragma warning restore CA1707 // Identifiers should not contain underscores
     }
 }
