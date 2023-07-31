@@ -59,6 +59,10 @@ namespace Snapchat.ApiClient.Services
             {
                 apiService = new MeasurementService(_authService);
             }
+            else if (typeof(TEntity) == typeof(IMediaService))
+            {
+                apiService = new MediaService(_authService);
+            }
             else
             {
                 throw new ApiServiceNotFoundException(typeof(TEntity));
