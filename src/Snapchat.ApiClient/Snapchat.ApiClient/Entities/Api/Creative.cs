@@ -114,5 +114,11 @@ namespace Snapchat.ApiClient.Entities.Api
         /// </summary>
         [JsonProperty("brand_name")]
         public string BrandName { get; set; }
+
+        /// <summary>
+        /// Gets or sets Composite properties.
+        /// </summary>
+        [JsonProperty("composite_properties")]
+        public CompositeProperties CompositeProperties { get; set; }
     }
 }
