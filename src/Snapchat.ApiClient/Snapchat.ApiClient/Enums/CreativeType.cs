@@ -77,6 +77,26 @@
         /// FILTER
         /// </summary>
         FILTER = 14,
+
+        /// <summary>
+        /// AD_TO_CALL
+        /// </summary>
+        AD_TO_CALL = 15,
+
+        /// <summary>
+        /// AD_TO_MESSAGE
+        /// </summary>
+        AD_TO_MESSAGE = 16,
+
+        /// <summary>
+        /// LENS
+        /// </summary>
+        LENS = 17,
+
+        /// <summary>
+        /// LEAD_GENERATION
+        /// </summary>
+        LEAD_GENERATION = 18,
 #pragma warning restore CA1707 // Identifiers should not contain underscores
     }
 }
