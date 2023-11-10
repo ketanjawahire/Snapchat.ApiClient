@@ -72,6 +72,16 @@
         /// FILTER
         /// </summary>
         FILTER = 55,
+
+        /// <summary>
+        /// FILTER
+        /// </summary>
+        LENS = 56,
+
+        /// <summary>
+        /// FILTER
+        /// </summary>
+        AD_TO_CALL = 57,
 #pragma warning restore CA1707 // Identifiers should not contain underscores
     }
 }
