@@ -70,5 +70,10 @@ namespace Snapchat.ApiClient
         /// Gets or sets a value indicating whether to include position stats or not.
         /// </summary>
         public bool PositionStats { get; set; }
+
+        /// <summary>
+        /// Gets or sets ReportDimension,
+        /// </summary>
+        public string ReportDimension { get; set; }
     }
 }
