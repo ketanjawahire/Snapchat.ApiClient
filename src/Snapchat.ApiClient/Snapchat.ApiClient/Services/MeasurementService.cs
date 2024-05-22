@@ -73,6 +73,11 @@ namespace Snapchat.ApiClient.Services
                 request.AddParameter("position_stats", "true");
             }
 
+            if (options.ReportDimension != null && options.ReportDimension.Length > 1)
+            {
+                request.AddParameter("report_dimension", options.ReportDimension);
+            }
+
             var response = Execute<T>(request);
 
             return response;
