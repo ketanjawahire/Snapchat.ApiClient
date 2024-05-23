@@ -77,6 +77,11 @@
         /// VIDEO_VIEWS_15_SEC
         /// </summary>
         VIDEO_VIEWS_15_SEC = 14,
+
+        /// <summary>
+        /// LANDING_PAGE_VIEW
+        /// </summary>
+        LANDING_PAGE_VIEW = 15
 #pragma warning restore CA1707 // Identifiers should not contain underscores
     }
 }
