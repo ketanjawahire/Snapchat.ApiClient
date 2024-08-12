@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using Newtonsoft.Json;
@@ -55,6 +56,10 @@ namespace Snapchat.ApiClient.Services
             else if (response.StatusCode == HttpStatusCode.Unauthorized)
             {
                 throw new UnauthorizedAccessException();
+            }
+            else if ((int)response.StatusCode == 429)
+            {
+                throw new RateLimitExceededException(response.Content.ToString(CultureInfo.InvariantCulture));
             }
 
             // TODO : move deserialize into seperate method
