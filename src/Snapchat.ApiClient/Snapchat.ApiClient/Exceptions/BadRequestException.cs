@@ -18,7 +18,6 @@ namespace Snapchat.ApiClient.Exceptions
     {
         private readonly HttpStatusCode _statusCode;
         private readonly ApiError _apiError;
-        private readonly ErrorResponse _errorResponse;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BadRequestException"/> class.
