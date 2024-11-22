@@ -16,5 +16,10 @@
         /// Ad squad
         /// </summary>
         AdSquad = 2,
+
+        /// <summary>
+        /// Campaign
+        /// </summary>
+        Campaign = 3,
     }
 }
