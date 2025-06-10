@@ -95,5 +95,14 @@ namespace Snapchat.ApiClient.Entities.Api
         [JsonProperty("optimization_goal")]
         [JsonConverter(typeof(StringEnumConverter))]
         public OptimizationGoal OptimizationGoal { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether ad squad is deleted.
+        /// </summary>
+        /// <value>
+        /// Deleted status.
+        /// </value>
+        [JsonProperty("deleted")]
+        public bool Deleted { get; set; }
     }
 }

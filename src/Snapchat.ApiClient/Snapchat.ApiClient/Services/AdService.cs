@@ -26,6 +26,8 @@ namespace Snapchat.ApiClient.Services
             var request = new RestRequest("/ads/{ad_id}", Method.GET);
             request.AddUrlSegment("ad_id", adId);
 
+            request.AddParameter("read_deleted_entities", true);
+
             var response = Execute<AdRootObject>(request);
 
             var result = Extract<AdRootObject, AdWrapper, Ad>(response);
