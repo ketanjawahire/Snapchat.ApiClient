@@ -35,6 +35,7 @@ namespace Snapchat.ApiClient.Services
         {
             var request = new RestRequest("/campaigns/{campaign_id}", Method.GET);
             request.AddUrlSegment("campaign_id", campaignId);
+            request.AddParameter("read_deleted_entities", true);
 
             var response = Execute<CampaignRootObject>(request);
             var campaigns = Extract<CampaignRootObject, CampaignWrapper, Campaign>(response);

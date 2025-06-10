@@ -75,5 +75,14 @@ namespace Snapchat.ApiClient.Entities.Api
 #pragma warning disable CA2227 // Collection properties should be read only
         public List<string> ReviewStatusReasons { get; set; }
 #pragma warning restore CA2227 // Collection properties should be read only
+
+        /// <summary>
+        /// Gets or sets a value indicating whether ad is deleted.
+        /// </summary>
+        /// <value>
+        /// Deleted status.
+        /// </value>
+        [JsonProperty("deleted")]
+        public bool Deleted { get; set; }
     }
 }

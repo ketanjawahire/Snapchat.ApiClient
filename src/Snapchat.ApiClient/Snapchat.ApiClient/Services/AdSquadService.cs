@@ -28,6 +28,8 @@ namespace Snapchat.ApiClient.Services
             var request = new RestRequest("/adsquads/{adsquad_id}", Method.GET);
             request.AddUrlSegment("adsquad_id", adsquaqId);
 
+            request.AddParameter("read_deleted_entities", true);
+
             var response = Execute<AdSquadRootObject>(request);
 
             var result = Extract<AdSquadRootObject, AdsquadWrapper, Adsquad>(response);
