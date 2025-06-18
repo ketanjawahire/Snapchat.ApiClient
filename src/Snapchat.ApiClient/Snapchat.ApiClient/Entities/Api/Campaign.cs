@@ -85,5 +85,11 @@ namespace Snapchat.ApiClient.Entities.Api
         /// </value>
         [JsonProperty("deleted")]
         public bool Deleted { get; set; }
+
+        /// <summary>
+        /// Gets or sets campaign objective.
+        /// </summary>
+        [JsonProperty("objective_v2_properties")]
+        public ObjectiveV2Properties ObjectiveV2Properties { get; set; }
     }
 }
